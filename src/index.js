@@ -7,7 +7,12 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import reducer from "./reducers/index";
 
-const store = createStore(reducer);
+
+
+const store = createStore(
+  reducer,
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+);
 
 ReactDOM.render(
   <Provider store={store}>
