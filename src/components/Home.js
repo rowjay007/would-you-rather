@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Tab } from "semantic-ui-react";
-// import UserCard from "./UserCard";
-// import PollTeaser from "./PollTeaser";
+import UserCard from "./UserCard";
+import PollTeaser from "./PollTeaser";
 
 const color = {
   green: {
