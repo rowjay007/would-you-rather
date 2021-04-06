@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
-import { handleInitialData } from "../actions/shared";
+import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
-import Login from "./Login";
-import Nav from "./Nav";
-import Home from "./Home";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +25,7 @@ class App extends Component {
             />
           ) : (
             <Fragment>
-              <Nav />
+              
               <ContentGrid>
                 <Route exact path="/" component={Home} />
               </ContentGrid>
