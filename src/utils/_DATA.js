@@ -1,8 +1,8 @@
 let users = {
-  sarahedo: {
-    id: "sarahedo",
-    name: "Sarah Edo",
-    avatarURL: "/images/avatars/rabbit.png",
+  brittini: {
+    id: "brittini",
+    name: "Brittini",
+    avatarURL: "/images/avatars/dog.png",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
       "6ni6ok3ym7mf1p33lnez": "optionTwo",
@@ -11,20 +11,20 @@ let users = {
     },
     questions: ["8xf0y6ziyjabvozdd253nd", "am8ehyc8byjqgar0jgpub9"],
   },
-  tylermcginnis: {
-    id: "tylermcginnis",
-    name: "Tyler McGinnis",
-    avatarURL: "/images/avatars/fox.png",
+  ifenna: {
+    id: "ifenna",
+    name: "Ifenna",
+    avatarURL: "/images/avatars/cat.png",
     answers: {
       vthrdm985a262al8qx3do: "optionOne",
       xj352vofupe1dqz9emx13r: "optionTwo",
     },
     questions: ["loxhs1bqm25b708cmbf3g", "vthrdm985a262al8qx3do"],
   },
-  johndoe: {
-    id: "johndoe",
-    name: "John Doe",
-    avatarURL: "/images/avatars/dog.png",
+  joeylene: {
+    id: "joeylene",
+    name: "Joeylene",
+    avatarURL: "/images/avatars/lion.png",
     answers: {
       xj352vofupe1dqz9emx13r: "optionOne",
       vthrdm985a262al8qx3do: "optionTwo",
@@ -32,15 +32,50 @@ let users = {
     },
     questions: ["6ni6ok3ym7mf1p33lnez", "xj352vofupe1dqz9emx13r"],
   },
+  peter: {
+    id: "peter",
+    name: "Peter",
+    avatarURL: "/images/avatars/gorilla.png",
+    answers: {},
+    questions: [],
+  },
+  anusha: {
+    id: "anusha",
+    name: "Anusha",
+    avatarURL: "/images/avatars/koala.png",
+    answers: {},
+    questions: [],
+  },
+  evidence: {
+    id: "evidence",
+    name: "Evidence",
+    avatarURL: "/images/avatars/rabbit.png",
+    answers: {},
+    questions: [],
+  },
+  meryem: {
+    id: "meryem",
+    name: "Meryem",
+    avatarURL: "/images/avatars/tiger.png",
+    answers: {},
+    questions: [],
+  },
+  james: {
+    id: "james",
+    name: "James",
+    avatarURL: "/images/avatars/fox.png",
+    answers: {},
+    questions: [],
+  },
 };
 
 let questions = {
   "8xf0y6ziyjabvozdd253nd": {
     id: "8xf0y6ziyjabvozdd253nd",
-    author: "sarahedo",
+    author: "brittini",
     timestamp: 1467166872634,
     optionOne: {
-      votes: ["sarahedo"],
+      votes: ["brittini"],
       text: "have horrible short term memory",
     },
     optionTwo: {
@@ -50,66 +85,66 @@ let questions = {
   },
   "6ni6ok3ym7mf1p33lnez": {
     id: "6ni6ok3ym7mf1p33lnez",
-    author: "johndoe",
+    author: "joeylene",
     timestamp: 1468479767190,
     optionOne: {
       votes: [],
       text: "become a superhero",
     },
     optionTwo: {
-      votes: ["johndoe", "sarahedo"],
+      votes: ["joeylene", "brittini"],
       text: "become a supervillain",
     },
   },
   am8ehyc8byjqgar0jgpub9: {
     id: "am8ehyc8byjqgar0jgpub9",
-    author: "sarahedo",
+    author: "brittini",
     timestamp: 1488579767190,
     optionOne: {
       votes: [],
       text: "be telekinetic",
     },
     optionTwo: {
-      votes: ["sarahedo"],
+      votes: ["brittini"],
       text: "be telepathic",
     },
   },
   loxhs1bqm25b708cmbf3g: {
     id: "loxhs1bqm25b708cmbf3g",
-    author: "tylermcginnis",
+    author: "ifenna",
     timestamp: 1482579767190,
     optionOne: {
       votes: [],
       text: "be a front-end developer",
     },
     optionTwo: {
-      votes: ["sarahedo"],
+      votes: ["brittini"],
       text: "be a back-end developer",
     },
   },
   vthrdm985a262al8qx3do: {
     id: "vthrdm985a262al8qx3do",
-    author: "tylermcginnis",
+    author: "ifenna",
     timestamp: 1489579767190,
     optionOne: {
-      votes: ["tylermcginnis"],
+      votes: ["ifenna"],
       text: "find $50 yourself",
     },
     optionTwo: {
-      votes: ["johndoe"],
+      votes: ["joeylene"],
       text: "have your best friend find $500",
     },
   },
   xj352vofupe1dqz9emx13r: {
     id: "xj352vofupe1dqz9emx13r",
-    author: "johndoe",
+    author: "joeylene",
     timestamp: 1493579767190,
     optionOne: {
-      votes: ["johndoe"],
+      votes: ["joeylene"],
       text: "write JavaScript",
     },
     optionTwo: {
-      votes: ["tylermcginnis"],
+      votes: ["ifenna"],
       text: "write Swift",
     },
   },
@@ -152,7 +187,7 @@ function formatQuestion({ optionOneText, optionTwoText, author }) {
 
 export function _saveQuestion(question) {
   return new Promise((res, rej) => {
-    const authedUser = question.author;
+    const authUser = question.author;
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
@@ -163,9 +198,9 @@ export function _saveQuestion(question) {
 
       users = {
         ...users,
-        [authedUser]: {
-          ...users[authedUser],
-          questions: users[authedUser].questions.concat([formattedQuestion.id]),
+        [authUser]: {
+          ...users[authUser],
+          questions: users[authUser].questions.concat([formattedQuestion.id]),
         },
       };
 
@@ -174,15 +209,15 @@ export function _saveQuestion(question) {
   });
 }
 
-export function _saveQuestionAnswer({ authedUser, qid, answer }) {
+export function _saveQuestionAnswer({ authUser, qid, answer }) {
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
         ...users,
-        [authedUser]: {
-          ...users[authedUser],
+        [authUser]: {
+          ...users[authUser],
           answers: {
-            ...users[authedUser].answers,
+            ...users[authUser].answers,
             [qid]: answer,
           },
         },
@@ -194,7 +229,7 @@ export function _saveQuestionAnswer({ authedUser, qid, answer }) {
           ...questions[qid],
           [answer]: {
             ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser]),
+            votes: questions[qid][answer].votes.concat([authUser]),
           },
         },
       };

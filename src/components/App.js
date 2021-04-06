@@ -1,10 +1,15 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
-import { handleInitialData } from "./actions/shared";
+import { handleInitialData } from "../actions/shared";
 import { connect } from "react-redux";
-import Login from "./components/Login";
-import Home from "./components/Home";
+import Login from "./Login";
+import Nav from './Nav';
+import Home from "./Home";
+import UserCard from "./UserCard";
+import NewPoll from "./NewPoll";
+import Leaderboard from "./Leaderboard";
+import NoMatch from "./NoMatch";
 
 class App extends Component {
   componentDidMount() {
@@ -24,10 +29,18 @@ class App extends Component {
               )}
             />
           ) : (
-            <Fragment>
-              
+              <Fragment>
+                
+              <Nav />
               <ContentGrid>
-                <Route exact path="/" component={Home} />
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route path="/questions/bad_id" component={NoMatch} />
+                  <Route path="/questions/:question_id" component={UserCard} />
+                  <Route path="/add" component={NewPoll} />
+                  <Route path="/leaderboard" component={Leaderboard} />
+                  <Route component={NoMatch} />
+                </Switch>
               </ContentGrid>
             </Fragment>
           )}
