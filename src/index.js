@@ -8,11 +8,9 @@ import reportWebVitals from "./reportWebVitals";
 import reducer from "./reducers/index";
 import middleware from "./middleware";
 
-const store = createStore(
-  reducer,
-  middleware,
-  window.devToolsExtension ? window.devToolsExtension() : (f) => f
-);
+
+
+const store = createStore(reducer, middleware);
 
 ReactDOM.render(
   <Provider store={store}>
