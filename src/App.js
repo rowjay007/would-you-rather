@@ -1,15 +1,15 @@
 import React, { Component, Fragment } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Grid } from "semantic-ui-react";
-import { handleInitialData } from "../actions/shared";
+import { handleInitialData } from "./actions/shared";
 import { connect } from "react-redux";
-import Login from "./Login";
-import Nav from './Nav';
-import Home from "./Home";
-import UserCard from "./UserCard";
-import NewPoll from "./NewPoll";
-import Leaderboard from "./Leaderboard";
-import NoMatch from "./NoMatch";
+import Login from "./components/Login";
+import Nav from './components/Nav';
+import Home from "./components/Home";
+import UserCard from "./components/UserCard";
+import NewPoll from "./components/NewPoll";
+import Leaderboard from "./components/Leaderboard";
+import NoMatch from "./components/NoMatch";
 
 class App extends Component {
   componentDidMount() {
