@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { Menu, Image, Grid, Button, Container } from "semantic-ui-react";
 import { setAuthUser } from "../actions/authUser";
+import { Container, Grid, Button, Image, Menu } from "./NavElement";
 
 class Nav extends Component {
   handleLogout = (e) => {
