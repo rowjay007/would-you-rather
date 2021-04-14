@@ -1,136 +1,54 @@
-import React, { Component, Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { setAuthUser } from "../actions/authUser";
-import { Container, Grid, Button, Image, Menu } from "./NavElement";
+import { withRouter } from "react-router-dom";
+import NavItem from "./NavItem/NavItem";
+import { logoutUser } from "../../Actions/authedUser";
+import classes from "./Nav.module.css";
+import MiniUserCard from "../UI/MiniUserCard/MiniUserCard";
 
 class Nav extends Component {
-  handleLogout = (e) => {
-    e.preventDefault();
-    this.props.setAuthUser(null);
+  handleLogout = () => {
+    const { dispatch } = this.props;
+    dispatch(logoutUser());
+    this.props.history.push({
+      pathname: "/login",
+      state: { from: "/home" },
+    });
   };
 
   render() {
-    const { authUser, users } = this.props;
-
     return (
-      <Container>
-        <Grid as={Menu} minWidth={651} pointing secondary>
-          <Menu.Item name="home" as={NavLink} to="/" exact />
-          <Menu.Item name="new poll" as={NavLink} to="/add" />
-          <Menu.Item name="leader board" as={NavLink} to="/leaderboard" />
-          <Menu.Menu position="right">
-            <Menu.Item>
-              <span>
-                <Image
-                  src={users[authUser].avatarURL}
-                  avatar
-                  spaced="right"
-                  verticalAlign="bottom"
-                />
-                {users[authUser].name}
-              </span>
-            </Menu.Item>
-            <Menu.Item>
-              <Button
-                content="Logout"
-                labelPosition="right"
-                basic
-                compact
-                icon="log out"
-                size="mini"
-                onClick={this.handleLogout}
-              />
-            </Menu.Item>
-          </Menu.Menu>
-        </Grid>
-        <Grid as={Fragment} minWidth={375} maxWidth={650}>
-          <Grid columns={2} padded="vertically">
-            <Grid.Row>
-              <Grid.Column>
-                <Image
-                  src={users[authUser].avatarURL}
-                  avatar
-                  spaced="right"
-                  verticalAlign="bottom"
-                />
-                {users[authUser].name}
-              </Grid.Column>
-              <Grid.Column verticalAlign="bottom" textAlign="right">
-                <Button
-                  content="Logout"
-                  labelPosition="right"
-                  basic
-                  compact
-                  icon="log out"
-                  size="mini"
-                  onClick={this.handleLogout}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column width={16}>
-                <Menu pointing secondary widths={3}>
-                  <Menu.Item name="home" as={NavLink} to="/" exact />
-                  <Menu.Item name="new poll" as={NavLink} to="/add" />
-                  <Menu.Item
-                    name="leader board"
-                    as={NavLink}
-                    to="/leaderboard"
-                  />
-                </Menu>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Grid>
-        <Grid as={Fragment} maxWidth={374}>
-          <Grid padded="vertically" columns={1}>
-            <Grid.Row>
-              <Grid.Column>
-                <Image
-                  src={users[authUser].avatarURL}
-                  avatar
-                  spaced="right"
-                  verticalAlign="bottom"
-                />
-                {users[authUser].name}
-                <Button
-                  content="Logout"
-                  labelPosition="right"
-                  basic
-                  compact
-                  icon="log out"
-                  size="mini"
-                  floated="right"
-                  onClick={this.handleLogout}
-                />
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row>
-              <Grid.Column>
-                <Menu pointing secondary widths={3}>
-                  <Menu.Item name="home" as={NavLink} to="/" exact />
-                  <Menu.Item name="new poll" as={NavLink} to="/add" />
-                  <Menu.Item
-                    name="leader board"
-                    as={NavLink}
-                    to="/leaderboard"
-                  />
-                </Menu>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Grid>
-      </Container>
+      <nav className={classes.Nav}>
+        <ul className={classes.NavigationItems}>
+          <NavItem className={classes.navItem} exact to="/home">
+            Home
+          </NavItem>
+          <NavItem className={classes.navItem} to="/leaderboard">
+            Leader Board
+          </NavItem>
+          <NavItem className={classes.navItem} to="/add">
+            New Question
+          </NavItem>
+        </ul>
+        {this.props.authedUser && (
+          <div className={classes.userOptions}>
+            <MiniUserCard user={this.props.authedUser} />
+            <button
+              type="button"
+              className={classes.logout}
+              onClick={this.handleLogout}
+            >
+              Log Out
+            </button>
+          </div>
+        )}
+      </nav>
     );
   }
 }
 
-function mapStateToProps({ users, authUser }) {
-  return {
-    authUser,
-    users,
-  };
-}
+const mapStateToProps = ({ authedUser }) => ({
+  authedUser,
+});
 
-export default connect(mapStateToProps, { setAuthUser })(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));
