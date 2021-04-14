@@ -1,0 +1,65 @@
+.mainContainer {
+    margin-bottom: 150px;
+}
+
+.container {
+    display: flex;
+    max-width: 400px;
+    margin: auto;
+    border: solid rgb(212, 205, 205) 1px;
+    border-radius: 4px;
+    margin-top: 40px;
+    padding: 10px;
+    box-shadow: 0 0 2px rgb(207, 203, 203);
+    height: 150px;
+}
+
+.imgContainer {
+    height: 100%;
+    width: 30%;
+}
+
+.img {
+    height: auto;
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.info {
+    height: 100%;
+    width: 55%;
+    margin: 0;
+    padding: 0;
+    border-left: solid rgb(212, 205, 205) 1px;
+    border-right: solid rgb(212, 205, 205) 1px;
+}
+
+.name {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.scoreItem {
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    border-top: solid rgb(212, 205, 205) 1px;
+}
+
+.score {
+    width: 15%;
+    height: 100%;
+}
+
+.score p {
+    margin-top: 40px;
+}
+
+.tomato {
+    color: tomato;
+    font-size: 1.3rem;
+}
