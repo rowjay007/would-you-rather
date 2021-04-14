@@ -1,0 +1,18 @@
+.NavigationItem {
+    margin-left: 10px;
+    border-left: solid 1px rgb(136, 136, 136);
+    padding: 6px 0 0 6px;
+    font-weight: bold;
+}
+
+.NavigationItem a {
+    text-decoration: none;
+}
+
+.Item{
+    color: rgb(95, 91, 91);
+}
+
+.active {
+    color: tomato;
+}
