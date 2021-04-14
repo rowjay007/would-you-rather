@@ -2,7 +2,7 @@ import {
   RECEIVE_QUESTIONS,
   SAVE_QUESTION,
   ANSWER_QUESTION,
-} from "../Actions/questions";
+} from "../actions/questions";
 
 const questionsReducer = (state = {}, action) => {
   switch (action.type) {

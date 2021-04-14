@@ -1,8 +1,14 @@
-import { SET_AUTH_USER } from "../actions/authUser";
+import { SET_AUTHED_USER, LOGOUT } from "../actions/authedUser";
 
-export default function authUser(state = null, action) {
-  if (action.type === SET_AUTH_USER) {
-    return action.id;
+const authedUserReducer = (state = null, action) => {
+  switch (action.type) {
+    case SET_AUTHED_USER:
+      return action.id;
+    case LOGOUT:
+      return null;
+    default:
+      return state;
   }
-  return state;
-}
+};
+
+export default authedUserReducer;
