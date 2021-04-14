@@ -10,7 +10,7 @@ import Leaderboard from "./Components/Leaderboard/Leaderboard";
 import Questions from "./Components/Questions/Questions";
 import QuestionItem from "./Components/Questions/QuestionItem/QuestionItem";
 import NoMatch from "./Components/NoMatch/NoMatch";
-import Router from "./Components/Router";
+import Router from "./Components/HOC/Router";
 
 import "./App.css";
 
