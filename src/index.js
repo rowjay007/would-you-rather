@@ -9,12 +9,10 @@ import thunk from "redux-thunk";
 import { BrowserRouter } from "react-router-dom";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// Add the root reducer and middleware to the store
-const store = createStore(
+const store = createStore(  
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
-
 
 ReactDOM.render(
   <Provider store={store}>
