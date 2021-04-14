@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import classes from "./QuestionForm.module.css";
-import { handleAnswerQuestion } from "../../../Actions/index";
+import { handleAnswerQuestion } from "../../../actions/index";
 
 class QuestionForm extends Component {
   state = {
