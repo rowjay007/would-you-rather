@@ -1,40 +1,37 @@
-import {
-  RECEIVE_USERS,
-  ADD_ANSWER_TO_USER,
-  ADD_QUESTION_TO_USER,
-} from "../actions/users";
+import { RECEIVE_USERS } from "../Actions/users";
+import { SAVE_QUESTION, ANSWER_QUESTION } from "../Actions/questions";
 
-export default function users(state = {}, action) {
+const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USERS:
       return {
         ...state,
         ...action.users,
       };
-    case ADD_ANSWER_TO_USER:
-      const { authUser, qid, answer } = action;
-
+    case SAVE_QUESTION:
       return {
         ...state,
-        [authUser]: {
-          ...state[authUser],
-          answers: {
-            ...state[authUser].answers,
-            [qid]: answer,
-          },
+        [action.question.author]: {
+          ...state[action.question.author],
+          questions: state[action.question.author].questions.concat([
+            action.question,
+          ]),
         },
       };
-    case ADD_QUESTION_TO_USER:
-      const { id, author } = action;
-
+    case ANSWER_QUESTION:
       return {
         ...state,
-        [author]: {
-          ...state[author],
-          questions: state[author].questions.concat(id),
+        [action.answerInfo.authedUser]: {
+          ...state[action.answerInfo.authedUser],
+          answers: {
+            ...state[action.answerInfo.authedUser].answers,
+            [action.answerInfo.qid]: action.answerInfo.answer,
+          },
         },
       };
     default:
       return state;
   }
-}
+};
+
+export default usersReducer;
