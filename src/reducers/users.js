@@ -1,5 +1,5 @@
-import { RECEIVE_USERS } from "../actions/users";
-import { SAVE_QUESTION, ANSWER_QUESTION } from "../actions/questions";
+import { RECEIVE_USERS } from "../Actions/users";
+import { SAVE_QUESTION, ANSWER_QUESTION } from "../Actions/questions";
 
 const usersReducer = (state = {}, action) => {
   switch (action.type) {
