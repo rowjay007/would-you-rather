@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { handleSaveQuestion } from "../../Actions";
+import { handleSaveQuestion } from "../../actions";
 import classes from "./NewQuestion.module.css";
 
 class NewQuestion extends Component {

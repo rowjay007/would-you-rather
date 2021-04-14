@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
 import LoadingBar, { showLoading, hideLoading } from "react-redux-loading-bar";
-import { getUsers, getQuestions } from "./Actions";
-import Nav from "./Components/Nav/Nav";
-import Login from "./Components/Login/Login";
-import NewQuestion from "./Components/NewQuestion/NewQuestion";
-import Leaderboard from "./Components/Leaderboard/Leaderboard";
-import Questions from "./Components/Questions/Questions";
-import QuestionItem from "./Components/Questions/QuestionItem/QuestionItem";
-import NoMatch from "./Components/NoMatch/NoMatch";
-import Router from "./Components/HOC/Router";
+import { getUsers, getQuestions } from "./actions";
+import Nav from "./components/Nav/Nav";
+import Login from "./components/Login/Login";
+import NewQuestion from "./components/NewQuestion/NewQuestion";
+import Questions from "./components/Questions/Questions";
+import QuestionItem from "./components/Questions/QuestionItem/QuestionItem";
+import Leaderboard from "./components/Leaderboard/Leaderboard";
+import NoMatch from "./components/NoMatch/NoMatch";
+import Router from "./components/HOC/Router";
 
 import "./App.css";
 

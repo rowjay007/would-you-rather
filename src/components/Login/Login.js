@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
-import { setAuthedUser } from "../../Actions/authedUser";
+import { setAuthedUser } from "../../actions/authedUser";
 import classes from "./Login.module.css";
 
 // Log in user, set authedUSer and redirect to "/"

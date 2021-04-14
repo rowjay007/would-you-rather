@@ -1,4 +1,4 @@
-import { SET_AUTHED_USER, LOGOUT } from "../Actions/authedUser";
+import { SET_AUTHED_USER, LOGOUT } from "../actions/authedUser";
 
 const authedUserReducer = (state = null, action) => {
   switch (action.type) {

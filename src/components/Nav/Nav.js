@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import NavItem from "./NavItem/NavItem";
-import { logoutUser } from "../../Actions/authedUser";
+import { logoutUser } from "../../actions/authedUser";
 import classes from "./Nav.module.css";
 import MiniUserCard from "../UI/MiniUserCard/MiniUserCard";
 
