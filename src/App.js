@@ -10,7 +10,7 @@ import Leaderboard from "./Components/Leaderboard/Leaderboard";
 import Questions from "./Components/Questions/Questions";
 import QuestionItem from "./Components/Questions/QuestionItem/QuestionItem";
 import NoMatch from "./Components/NoMatch/NoMatch";
-import PrivateRoute from "./Components/HOC/PrivateRoute";
+import Router from "./Components/Router";
 
 import "./App.css";
 
@@ -30,12 +30,12 @@ class App extends Component {
           <Nav authedUser={this.props.authedUser} />
           <Switch>
             <Route path="/login" component={Login} />
-            <PrivateRoute path="/home" component={Questions} />
+            <Router path="/home" component={Questions} />
             <Redirect exact from="/" to="/home" />
-            <PrivateRoute path="/add" component={NewQuestion} />
-            <PrivateRoute path="/leaderboard" component={Leaderboard} />
-            <PrivateRoute path="/questions/:id" component={QuestionItem} />
-            <PrivateRoute path="*" component={NoMatch} />
+            <Router path="/add" component={NewQuestion} />
+            <Router path="/leaderboard" component={Leaderboard} />
+            <Router path="/questions/:id" component={QuestionItem} />
+            <Router path="*" component={NoMatch} />
             <Route component={NoMatch} />
           </Switch>
         </React.Fragment>
