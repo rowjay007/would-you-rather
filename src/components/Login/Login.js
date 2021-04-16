@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { setAuthedUser } from "../../actions/authedUser";
+import { Container, OceanBlue } from "./Login.Element";
 import classes from "./Login.module.css";
+
 
 // Log in user, set authedUSer and redirect to "/"
 class Login extends Component {
@@ -41,10 +43,10 @@ class Login extends Component {
     const { users } = this.props;
     const names = Object.keys(users);
     return (
-      <div className={classes.container}>
-        <p className={classes.tomatoText}>Wellcome to the</p>
+      <Container>
+        <OceanBlue>Welcome to the</OceanBlue>
         <h2 className={classes.header}>Would You Rather?</h2>
-        <p className={classes.tomatoText}>App</p>
+        <OceanBlue>App</OceanBlue>
         <p className={classes.text}>To continue please log in.</p>
         <form onSubmit={this.handleSubmit}>
           <select
@@ -70,7 +72,7 @@ class Login extends Component {
             disabled={this.state.value === "users"}
           />
         </form>
-      </div>
+      </Container>
     );
   }
 }
