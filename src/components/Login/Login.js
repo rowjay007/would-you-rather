@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { setAuthedUser } from "../../actions/authedUser";
-import { Container, OceanBlue } from "./Login.Element";
+import { Container, OceanBlue, HeaderH2, LoginText } from "./Login.Element";
 import classes from "./Login.module.css";
 
 
-// Log in user, set authedUSer and redirect to "/"
 class Login extends Component {
   state = {
     value: "users",
@@ -45,9 +44,9 @@ class Login extends Component {
     return (
       <Container>
         <OceanBlue>Welcome to the</OceanBlue>
-        <h2 className={classes.header}>Would You Rather?</h2>
+        <HeaderH2>Would You Rather?</HeaderH2>
         <OceanBlue>App</OceanBlue>
-        <p className={classes.text}>To continue please log in.</p>
+        <LoginText>To continue please log in.</LoginText>
         <form onSubmit={this.handleSubmit}>
           <select
             className={classes.input}

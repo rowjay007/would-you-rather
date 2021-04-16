@@ -17,9 +17,13 @@ export const OceanBlue = styled.p`
   margin: 20px 0;
 `;
 
-// .header {
-//   font-style: oblique;
-// }
+export const HeaderH2 = styled.h2`
+  font-style: oblique;
+`;
+
+export const LoginText = styled.p`
+  margin: 10px 0;
+`;
 
 // .text {
 //   margin: 10px 0;
