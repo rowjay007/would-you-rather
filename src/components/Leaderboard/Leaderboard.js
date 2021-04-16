@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserSummary from "./UserSummary";
-import classes from "./Leaderboard.module.css";
+import { Main } from "./LeaderboardStyled";
 
 const Leaderboard = ({users}) => {
   const names = users ? Object.keys(users) : null;
@@ -23,11 +23,11 @@ const Leaderboard = ({users}) => {
       : [];
   // for sorted users return a list of UserSummary components
   return (
-    <div className={classes.mainContainer}>
+    <Main>
       {!formated.length
         ? null
         : formated.map((name) => <UserSummary key={name.id} name={name} />)}
-    </div>
+    </Main>
   );
 };
 
