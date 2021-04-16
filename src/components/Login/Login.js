@@ -8,8 +8,8 @@ import {
   HeaderH2,
   LoginText,
   Selection,
+  Input,
 } from "./Login.Element";
-import classes from "./Login.module.css";
 
 class Login extends Component {
   state = {
@@ -68,8 +68,7 @@ class Login extends Component {
               </option>
             ))}
           </Selection>
-          <input
-            className={classes.bth}
+          <Input
             type="submit"
             value="Log In"
             disabled={this.state.value === "users"}

@@ -30,21 +30,11 @@ export const Selection = styled.select`
   height: 30px;
 `;
 
-
-// .text {
-//   margin: 10px 0;
-// }
-
-// .input {
-//   min-width: 200px;
-//   height: 30px;
-// }
-
-// .bth {
-//   color: white;
-//   background-color: tomato;
-//   height: 30px;
-//   border: none;
-//   margin: 0;
-//   padding: 0 5px;
-// }
+export const Input = styled.input`
+  color: white;
+  background-color: #006994;
+  height: 30px;
+  border: none;
+  margin: 0;
+  padding: 0 5px;
+`;
