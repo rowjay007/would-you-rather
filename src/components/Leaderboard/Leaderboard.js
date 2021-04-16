@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import UserSummary from "./UserSummary";
 import classes from "./Leaderboard.module.css";
 
-const Leaderboard = (props) => {
-  const { users } = props;
+const Leaderboard = ({users}) => {
   const names = users ? Object.keys(users) : null;
   // Format and sort users to have all info needed to render leder board in the right order
   const formated =
