@@ -25,6 +25,12 @@ export const LoginText = styled.p`
   margin: 10px 0;
 `;
 
+export const Selection = styled.select`
+  min-width: 200px;
+  height: 30px;
+`;
+
+
 // .text {
 //   margin: 10px 0;
 // }

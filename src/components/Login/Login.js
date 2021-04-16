@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { setAuthedUser } from "../../actions/authedUser";
-import { Container, OceanBlue, HeaderH2, LoginText } from "./Login.Element";
+import {
+  Container,
+  OceanBlue,
+  HeaderH2,
+  LoginText,
+  Selection,
+} from "./Login.Element";
 import classes from "./Login.module.css";
-
 
 class Login extends Component {
   state = {
@@ -48,8 +53,7 @@ class Login extends Component {
         <OceanBlue>App</OceanBlue>
         <LoginText>To continue please log in.</LoginText>
         <form onSubmit={this.handleSubmit}>
-          <select
-            className={classes.input}
+          <Selection
             value={this.state.value}
             onChange={(e) => this.handleChange(e)}
           >
@@ -63,7 +67,7 @@ class Login extends Component {
                 {users[name].name}
               </option>
             ))}
-          </select>
+          </Selection>
           <input
             className={classes.bth}
             type="submit"
