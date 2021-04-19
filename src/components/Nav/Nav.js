@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import NavItem from "./NavItem/NavItem";
@@ -6,9 +6,10 @@ import { logoutUser } from "../../actions/authedUser";
 import classes from "./Nav.module.css";
 import MiniUserCard from "../UI/MiniUserCard/MiniUserCard";
 
-class Nav extends Component {
-  handleLogout = () => {
-    const { dispatch } = this.props;
+const Nav = ({dispatch, authedUser}) => {
+  
+
+ const handleLogout = () => {
     dispatch(logoutUser());
     this.props.history.push({
       pathname: "/login",
@@ -16,7 +17,7 @@ class Nav extends Component {
     });
   };
 
-  render() {
+  
     return (
       <nav className={classes.Nav}>
         <ul className={classes.NavigationItems}>
@@ -30,13 +31,13 @@ class Nav extends Component {
             New Question
           </NavItem>
         </ul>
-        {this.props.authedUser && (
+        {authedUser && (
           <div className={classes.userOptions}>
-            <MiniUserCard user={this.props.authedUser} />
+            <MiniUserCard user={authedUser} />
             <button
               type="button"
               className={classes.logout}
-              onClick={this.handleLogout}
+              onClick={handleLogout}
             >
               Log Out
             </button>
@@ -45,7 +46,7 @@ class Nav extends Component {
       </nav>
     );
   }
-}
+
 
 const mapStateToProps = ({ authedUser }) => ({
   authedUser,
