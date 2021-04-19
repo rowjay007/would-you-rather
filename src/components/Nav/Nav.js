@@ -6,12 +6,12 @@ import { logoutUser } from "../../actions/authedUser";
 import classes from "./Nav.module.css";
 import MiniUserCard from "../UI/MiniUserCard/MiniUserCard";
 
-const Nav = ({dispatch, authedUser}) => {
+const Nav = ({dispatch, authedUser, history}) => {
   
 
  const handleLogout = () => {
     dispatch(logoutUser());
-    this.props.history.push({
+    history.push({
       pathname: "/login",
       state: { from: "/home" },
     });
@@ -21,13 +21,13 @@ const Nav = ({dispatch, authedUser}) => {
     return (
       <nav className={classes.Nav}>
         <ul className={classes.NavigationItems}>
-          <NavItem className={classes.navItem} exact to="/home">
+          <NavItem style={{height: "100%"}} exact to="/home">
             Home
           </NavItem>
-          <NavItem className={classes.navItem} to="/leaderboard">
+          <NavItem style={{height: "100%"}} to="/leaderboard">
             Leader Board
           </NavItem>
-          <NavItem className={classes.navItem} to="/add">
+          <NavItem style={{height: "100%"}} to="/add">
             New Question
           </NavItem>
         </ul>
