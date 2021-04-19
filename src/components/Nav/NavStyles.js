@@ -9,38 +9,42 @@ export const NavBar = styled.nav`
   font-size: 1.2rem;
 `;
 
-// export const NavigationItems = styled.ul`
-//   margin: 0;
-//   padding: 5px;
-//   list-style: none;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-start;
-//   justify-content: center;
-//   height: 100%;
-//   border-radius: 8px 8px 0 0;
-//   background: rgb(223, 223, 223);
-// `;
-// // export const NavItem = styled(NavItem)`
-// //   height: 100 %;
-// // `;
+export const NavigationItems = styled.ul`
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+  background: rgb(223, 223, 223);
 
-// export const userOptions = styled.div`
-//   height: 40px;
-//   margin: 0;
-//   padding: 0;
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-end;
-//   font-size: 0.9rem;
-// `;
+  @media screen and (min-width: 450px) {
+    .NavigationItems {
+        flex-direction: row;
+    }
+`;
+/* // export const NavItem = styled(NavItem)`
+//   height: 100 %;
+// `; */
 
-// export const Button = styled.button`
-//     border: none;
-//     color: white;
-//     background: tomato;
-//     padding: 5px 5px;
-//     height: 35px;
-//     align-self: flex-end;
-//     cursor: pointer;
-//     `
+export const userOptions = styled.div`
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 0.9rem;
+`;
+
+export const Button = styled.button`
+  border: none;
+  color: white;
+  background: tomato;
+  padding: 5px 5px;
+  height: 35px;
+  align-self: flex-end;
+  cursor: pointer;
+`;
