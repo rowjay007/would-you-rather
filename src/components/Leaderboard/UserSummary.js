@@ -1,34 +1,32 @@
 import React from "react";
-import classes from "./Leaderboard.module.css";
+import { Container, imgContainer, Image, Info, Name, ScoreCard, Score, OceanBlue } from "./LeaderboardStyled";
 
-// takes in a user object and returns UserSummary component for LeaederBoard
-const UserSummary = ({name}) => {
-  
+const UserSummary = ({ name }) => {
   return (
-    <div key={name.id} className={classes.container}>
-      <div className={classes.imgContainer}>
-        <img
-          className={classes.img}
+    <Container key={name.id}>
+      <imgContainer>
+        <Image
+          
           src={name.avatar}
           alt={`${name.name}'s avatar`}
         />
-      </div>
-      <div className={classes.info}>
-        <h3 className={classes.name}>{name.name}</h3>
-        <p className={classes.scoreItem}>
+      </imgContainer>
+      <Info>
+        <Name>{name.name}</Name>
+        <ScoreCard>
           <span>Answered questions</span>
           <span>{name.answered}</span>
-        </p>
-        <p className={classes.scoreItem}>
+        </ScoreCard>
+        <ScoreCard>
           <span>Created questions</span>
           <span>{name.asked}</span>
-        </p>
-      </div>
-      <div className={classes.score}>
+        </ScoreCard>
+      </Info>
+      <Score>
         <p>score</p>
-        <div className={classes.tomato}>{name.total}</div>
-      </div>
-    </div>
+        <OceanBlue>{name.total}</OceanBlue>
+      </Score>
+    </Container>
   );
 };
 

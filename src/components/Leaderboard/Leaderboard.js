@@ -5,7 +5,6 @@ import { Main } from "./LeaderboardStyled";
 
 const Leaderboard = ({users}) => {
   const names = users ? Object.keys(users) : null;
-  // Format and sort users to have all info needed to render leder board in the right order
   const formated =
     names !== null
       ? names
