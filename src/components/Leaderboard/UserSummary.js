@@ -2,8 +2,8 @@ import React from "react";
 import classes from "./Leaderboard.module.css";
 
 // takes in a user object and returns UserSummary component for LeaederBoard
-const UserSummary = (props) => {
-  const { name } = props;
+const UserSummary = ({name}) => {
+  
   return (
     <div key={name.id} className={classes.container}>
       <div className={classes.imgContainer}>
