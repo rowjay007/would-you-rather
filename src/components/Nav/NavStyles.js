@@ -1,13 +1,13 @@
-// import styled from "styled-components";
+import styled from "styled-components";
 
-// export const NavBar = styled.nav`
-//   display: flex;
-//   min-height: 80px;
-//   border-bottom: solid 2px tomato;
-//   justify-content: space-between;
-//   align-items: flex-end;
-//   font-size: 1.2rem;
-// `;
+export const NavBar = styled.nav`
+  display: flex;
+  min-height: 80px;
+  border-bottom: solid 2px tomato;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 1.2rem;
+`;
 
 // export const NavigationItems = styled.ul`
 //   margin: 0;

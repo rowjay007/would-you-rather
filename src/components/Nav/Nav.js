@@ -5,6 +5,7 @@ import NavItem from "./NavItem/NavItem";
 import { logoutUser } from "../../actions/authedUser";
 import classes from "./Nav.module.css";
 import MiniUserCard from "../UI/MiniUserCard/MiniUserCard";
+import { NavBar } from "./NavStyles";
 
 const Nav = ({dispatch, authedUser, history}) => {
   
@@ -19,7 +20,7 @@ const Nav = ({dispatch, authedUser, history}) => {
 
   
     return (
-      <nav className={classes.Nav}>
+      <NavBar >
         <ul className={classes.NavigationItems}>
           <NavItem style={{height: "100%"}} exact to="/home">
             Home
@@ -43,7 +44,7 @@ const Nav = ({dispatch, authedUser, history}) => {
             </button>
           </div>
         )}
-      </nav>
+      </NavBar>
     );
   }
 
