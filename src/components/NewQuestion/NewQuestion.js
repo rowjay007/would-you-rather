@@ -3,7 +3,14 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { handleSaveQuestion } from "../../actions";
 import classes from "./NewQuestion.module.css";
-import { Container, FormInput, HeaderH2, Input } from "./NewQuestionStyle";
+import {
+  Button,
+  Container,
+  FormInput,
+  Green,
+  HeaderH2,
+  Input,
+} from "./NewQuestionStyle";
 
 class NewQuestion extends Component {
   state = {
@@ -61,9 +68,7 @@ class NewQuestion extends Component {
             {
               /* input lenght is limited to 50 characters dispaly remaining characters count if remeinin is less than 15 */
               this.state.optionOne.length > 35 && (
-                <p className={classes.red}>
-                  {50 - this.state.optionOne.length}
-                </p>
+                <Green>{50 - this.state.optionOne.length}</Green>
               )
             }
           </FormInput>
@@ -87,9 +92,7 @@ class NewQuestion extends Component {
               )
             }
           </div>
-          <button type="submit" className={classes.btn}>
-            Submit
-          </button>
+          <Button type="submit">Submit</Button>
         </form>
       </Container>
     );

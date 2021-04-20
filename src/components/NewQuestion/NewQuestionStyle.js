@@ -34,3 +34,21 @@ export const Input = styled.input`
   margin-top: 0;
   border: solid 1px rgb(95, 91, 91);
 `;
+
+export const Green = styled.p`
+  color: #17b978;
+  text-align: right;
+`;
+
+export const Button = styled.button`
+  display: block;
+  margin: auto;
+  color: white;
+  background-color: #006994;
+  width: 70%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+`;
