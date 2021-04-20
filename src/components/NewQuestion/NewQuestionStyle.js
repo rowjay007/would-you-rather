@@ -16,7 +16,7 @@ export const HeaderH2 = styled.h2`
   margin: auto;
   margin-top: 20px;
   margin-bottom: 30px;
-  color: tomato;
+  color: #006994;
   font-size: 1.3rem;
 `;
 

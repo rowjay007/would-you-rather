@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { handleSaveQuestion } from "../../actions";
-import classes from "./NewQuestion.module.css";
 import {
   Button,
   Container,
@@ -72,10 +71,9 @@ class NewQuestion extends Component {
               )
             }
           </FormInput>
-          <span>or..</span>
-          <div className={classes.inputContainer}>
-            <input
-              className={classes.input}
+          <span>or...</span>
+          <FormInput>
+            <Input
               type="text-area"
               name="optionTwo"
               placeholder="Enter option Two"
@@ -86,12 +84,10 @@ class NewQuestion extends Component {
             {
               /* input lenght is limited to 50 characters dispaly remaining characters count if remeinin is less than 15 */
               this.state.optionTwo.length > 35 && (
-                <p className={classes.red}>
-                  {50 - this.state.optionTwo.length}
-                </p>
+                <Green>{50 - this.state.optionTwo.length}</Green>
               )
             }
-          </div>
+          </FormInput>
           <Button type="submit">Submit</Button>
         </form>
       </Container>
