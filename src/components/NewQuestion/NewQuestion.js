@@ -43,7 +43,7 @@ class NewQuestion extends Component {
     return (
       <div className={classes.container}>
         <p>
-          To create a new question enter two answer options in the text fileds
+          To create a new question enter two answer options in the text fields
           below
         </p>
         <h2 className={classes.header}>Would you rather...</h2>
