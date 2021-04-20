@@ -18,7 +18,7 @@ const Nav = ({ dispatch, authedUser, history }) => {
   return (
     <NavBar>
       <NavigationItems>
-        <NavItem style={{ height: "100%" }} exact to="/home">
+        <NavItem style={{ height: "500%" }} exact to="/home">
           Home
         </NavItem>
         <NavItem style={{ height: "100%" }} to="/leaderboard">

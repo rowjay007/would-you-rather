@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavBar = styled.nav`
   display: flex;
   min-height: 80px;
-  border-bottom: solid 2px tomato;
+  border-bottom: solid 2px #006994;
   justify-content: space-between;
   align-items: flex-end;
   font-size: 1.2rem;
@@ -42,7 +42,7 @@ export const userOptions = styled.div`
 export const Button = styled.button`
   border: none;
   color: white;
-  background: tomato;
+  background: #006994;
   padding: 5px 5px;
   height: 35px;
   align-self: flex-end;
