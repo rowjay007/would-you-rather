@@ -10,3 +10,17 @@ export const Container = styled.div`
   box-shadow: 0 0 2px rgb(207, 203, 203);
   box-sizing: border-box;
 `;
+
+export const HeaderH2 = styled.h2`
+  font-style: oblique;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: tomato;
+  font-size: 1.3rem;
+`;
+
+export const FormInput = styled.div`
+  height: 50px;
+  margin-top: 10px;
+`;
