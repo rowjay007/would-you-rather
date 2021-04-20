@@ -24,3 +24,13 @@ export const FormInput = styled.div`
   height: 50px;
   margin-top: 10px;
 `;
+
+export const Input = styled.input`
+  display: block;
+  margin: auto;
+  padding-left: 5px;
+  width: 100%;
+  min-height: 30px;
+  margin-top: 0;
+  border: solid 1px rgb(95, 91, 91);
+`;

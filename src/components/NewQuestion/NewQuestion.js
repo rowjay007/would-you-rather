@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { handleSaveQuestion } from "../../actions";
 import classes from "./NewQuestion.module.css";
-import { Container, FormInput, HeaderH2 } from "./NewQuestionStyle";
+import { Container, FormInput, HeaderH2, Input } from "./NewQuestionStyle";
 
 class NewQuestion extends Component {
   state = {
@@ -50,8 +50,7 @@ class NewQuestion extends Component {
         <HeaderH2>Would you rather...</HeaderH2>
         <form onSubmit={this.handleSubmit}>
           <FormInput>
-            <input
-              className={classes.input}
+            <Input
               type="text-area"
               name="optionOne"
               placeholder="Enter option One"
