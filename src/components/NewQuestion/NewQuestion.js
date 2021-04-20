@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { handleSaveQuestion } from "../../actions";
 import classes from "./NewQuestion.module.css";
+import { Container } from "./NewQuestionStyle";
 
 class NewQuestion extends Component {
   state = {
@@ -41,7 +42,7 @@ class NewQuestion extends Component {
 
   render() {
     return (
-      <div className={classes.container}>
+      <Container>
         <p>
           To create a new question enter two answer options in the text fields
           below
@@ -91,7 +92,7 @@ class NewQuestion extends Component {
             Submit
           </button>
         </form>
-      </div>
+      </Container>
     );
   }
 }
