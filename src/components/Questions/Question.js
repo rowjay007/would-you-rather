@@ -1,7 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import classes from "./Question.module.css";
+import {
+  Body,
+  Button,
+  Container,
+  Header,
+  HeaderFour,
+  HeaderThree,
+  Image,
+  ImageContainer,
+  Info,
+  Linked,
+} from "./QuestionStyle";
 
 const Question = (props) => {
   const questionID = props.questionID
@@ -15,25 +25,21 @@ const Question = (props) => {
     question.optionTwo.votes.includes(authedUser);
 
   return (
-    <div className={classes.container}>
-      <div className={classes.header}>
-        <h3 className={classes.name}>{author.name} asks</h3>
-      </div>
+    <Container>
+      <Header>
+        <HeaderThree>{author.name} asks</HeaderThree>
+      </Header>
 
-      <div className={classes.body}>
-        <div className={classes.imgContainer}>
-          <img
-            className={classes.img}
-            src={author.avatarURL}
-            alt={`${author.name}'s avatar`}
-          />
-        </div>
-        <div className={classes.info}>
-          <h4 className={classes.name}>Would you rather</h4>
-          <p className={classes.scoreItem}>
+      <Body>
+        <ImageContainer>
+          <Image src={author.avatarURL} alt={`${author.name}'s avatar`} />
+        </ImageContainer>
+        <Info>
+          <HeaderFour>Would you rather</HeaderFour>
+          <p>
             <span>...{question.optionOne.text}...</span>
           </p>
-          <Link
+          <Linked
             to={{
               pathname: `/questions/${question.id}`,
               state: {
@@ -43,13 +49,11 @@ const Question = (props) => {
               },
             }}
           >
-            <button type="button" className={classes.btn}>
-              View Question
-            </button>
-          </Link>
-        </div>
-      </div>
-    </div>
+            <Button type="button">View Question</Button>
+          </Linked>
+        </Info>
+      </Body>
+    </Container>
   );
 };
 
