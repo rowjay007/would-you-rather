@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Option from "./Option";
-import classes from "./QuestionStats.module.css";
+import { Container, Image, Progress } from "./QuestionStatsStyle";
 
 // takes in props and calculates and formats question data neded to render Option for each answer option
 const QuestionInfo = (props) => {
@@ -48,28 +47,20 @@ const QuestionInfo = (props) => {
   ];
 
   return (
-    <div className={classes.container}>
+    <Container>
       <h2>Question stats:</h2>
-      <div className={classes.header}>
+      <div>
         <h4>Asked by {author.name}</h4>
       </div>
-      <div className={classes.imgContainer}>
-        <img
-          className={classes.img}
-          src={author.avatarURL}
-          alt={`avatar of ${author.name}`}
-        />
+      <div>
+        <Image src={author.avatarURL} alt={`avatar of ${author.name}`} />
       </div>
-      <div className={classes.stats}>
+      <div>
         {options.map((option) => (
-          <Option
-            className={classes.progress}
-            key={option.option}
-            option={option}
-          />
+          <Progress key={option.option} option={option} />
         ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
