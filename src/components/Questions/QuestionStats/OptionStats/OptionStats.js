@@ -1,8 +1,7 @@
 import React from "react";
 import { StatusBar, StatusFill, Wrapper } from "./OptionStatsStyle";
 
-const OptionStats = (props) => {
-  const { width } = props;
+const OptionStats = ({width}) => {
   const spanWidth = `${width}%`;
 
   return (
