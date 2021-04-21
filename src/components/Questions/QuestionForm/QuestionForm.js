@@ -1,8 +1,19 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import classes from "./QuestionForm.module.css";
 import { handleAnswerQuestion } from "../../../actions/index";
+import {
+  Body,
+  Container,
+  Form,
+  FormContainer,
+  FormItem,
+  Header,
+  Image,
+  ImageHolder,
+  Input,
+  Name,
+} from "./QuestionFormStyle";
 
 class QuestionForm extends Component {
   state = {
@@ -30,23 +41,19 @@ class QuestionForm extends Component {
     const { question, users } = this.props;
     const author = users[question.author];
     return (
-      <div className={classes.container}>
-        <div className={classes.header}>
-          <h3 className={classes.name}>{author.name} asks:</h3>
-        </div>
+      <Container>
+        <Header>
+          <Name>{author.name} asks:</Name>
+        </Header>
 
-        <div className={classes.body}>
-          <div className={classes.imgContainer}>
-            <img
-              className={classes.img}
-              src={author.avatarURL}
-              alt={`${author.name}'s avatar`}
-            />
-          </div>
-          <div className={classes.formContainer}>
-            <h4 className={classes.name}>Would you rather..</h4>
-            <form className={classes.form} onSubmit={this.handleSubmit}>
-              <div className={classes.formItem}>
+        <Body>
+          <ImageHolder>
+            <Image src={author.avatarURL} alt={`${author.name}'s avatar`} />
+          </ImageHolder>
+          <FormContainer>
+            <Name>Would you rather..</Name>
+            <Form onSubmit={this.handleSubmit}>
+              <FormItem>
                 <label htmlFor="option one">
                   <input
                     id="option one"
@@ -57,8 +64,8 @@ class QuestionForm extends Component {
                   />
                   {question.optionOne.text}
                 </label>
-              </div>
-              <div className={classes.formItem}>
+              </FormItem>
+              <FormItem>
                 <label htmlFor="option two">
                   <input
                     id="option two"
@@ -69,12 +76,12 @@ class QuestionForm extends Component {
                   />
                   {question.optionTwo.text}
                 </label>
-              </div>
-              <input type="submit" className={classes.btn} value="Submit" />
-            </form>
-          </div>
-        </div>
-      </div>
+              </FormItem>
+              <Input type="submit" value="Submit" />
+            </Form>
+          </FormContainer>
+        </Body>
+      </Container>
     );
   }
 }
