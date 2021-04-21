@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Question from "./Question";
 import "react-tabs/style/react-tabs.css";
-import classes from "./Questions.module.css";
+import { Container, Header } from "./QuestionsStyle";
 
 // Takes questions, sorts the to answered and unanswered and displays them in tabs in order from newer questions to older
 class Questions extends Component {
@@ -52,18 +52,18 @@ class Questions extends Component {
     ));
 
     return (
-      <div className={classes.container}>
-        <h2 className={classes.heading}>Questions</h2>
+      <Container>
+        <Header>Questions</Header>
         <Tabs>
           <TabList>
-            <Tab className={classes.tab}>Unanswered</Tab>
-            <Tab className={classes.tab}>Ananswered</Tab>
+            <Tab>Unanswered</Tab>
+            <Tab>Ananswered</Tab>
           </TabList>
 
           <TabPanel>{renderUnanswered}</TabPanel>
           <TabPanel>{renderAnswered}</TabPanel>
         </Tabs>
-      </div>
+      </Container>
     );
   }
 }
