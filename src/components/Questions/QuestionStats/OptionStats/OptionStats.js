@@ -1,20 +1,19 @@
 import React from "react";
-import classes from "./OptionStats.module.css";
+import { StatusBar, StatusFill, Wrapper } from "./OptionStatsStyle";
 
 const OptionStats = (props) => {
   const { width } = props;
   const spanWidth = `${width}%`;
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.progressBar}>
+    <Wrapper>
+      <StatusBar>
         <p style={{ position: "absolute", marginLeft: "5px" }}>{spanWidth}</p>
-        <span
-          className={classes.progressBarFill}
+        <StatusFill
           style={{ width: spanWidth }}
         />
-      </div>
-    </div>
+      </StatusBar>
+    </Wrapper>
   );
 };
 
