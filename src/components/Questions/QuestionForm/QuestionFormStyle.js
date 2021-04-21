@@ -32,7 +32,7 @@ export const ImageHolder = styled.div`
   margin: auto;
 `;
 
-export const Image = styled.img `
+export const Image = styled.img`
   height: auto;
   width: 80%;
   margin: auto;
@@ -57,14 +57,25 @@ export const FormContainer = styled.div`
   border-left: solid rgb(212, 205, 205) 1px;
 `;
 
+export const Label = styled.label`
+  cursor: pointer;
+`;
+export const Input = styled.input`
+  cursor: pointer;
+  margin: 0.4rem;
+`;
 export const FormItem = styled.div`
   width: 90%;
   margin: auto;
   text-align: left;
   border-top: solid rgb(212, 205, 205) 1px;
+
+  & Label > Input {
+    cursor: pointer;
+  }
 `;
 
-export const Input = styled.input`
+export const SubmitInput = styled.input`
   display: block;
   margin: auto;
   color: white;

@@ -11,8 +11,10 @@ import {
   Header,
   Image,
   ImageHolder,
-  Input,
+  SubmitInput,
   Name,
+  Label,
+  Input
 } from "./QuestionFormStyle";
 
 class QuestionForm extends Component {
@@ -54,8 +56,8 @@ class QuestionForm extends Component {
             <Name>Would you rather..</Name>
             <Form onSubmit={this.handleSubmit}>
               <FormItem>
-                <label htmlFor="option one">
-                  <input
+                <Label htmlFor="option one">
+                  <Input
                     id="option one"
                     type="radio"
                     value="optionOne"
@@ -63,11 +65,11 @@ class QuestionForm extends Component {
                     onChange={this.handleChange}
                   />
                   {question.optionOne.text}
-                </label>
+                </Label>
               </FormItem>
               <FormItem>
-                <label htmlFor="option two">
-                  <input
+                <Label htmlFor="option two">
+                  <Input
                     id="option two"
                     type="radio"
                     value="optionTwo"
@@ -75,9 +77,9 @@ class QuestionForm extends Component {
                     onChange={this.handleChange}
                   />
                   {question.optionTwo.text}
-                </label>
+                </Label>
               </FormItem>
-              <Input type="submit" value="Submit" />
+              <SubmitInput type="submit" value="Submit" />
             </Form>
           </FormContainer>
         </Body>
