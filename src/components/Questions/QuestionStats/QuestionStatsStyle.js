@@ -1,7 +1,5 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 import Option from "./Option";
-
-
 
 export const Container = styled.div`
   max-width: 400px;
@@ -26,4 +24,18 @@ export const Progress = styled(Option)`
   border-radius: 4px;
   min-height: 110px;
   margin-top: 10px;
+`;
+export const ProgressBar = styled.div`
+  border: solid rgb(212, 205, 205) 1px;
+  border-radius: 4px;
+  min-height: 110px;
+  margin-top: 10px;
+`;
+
+
+
+export const Text = styled.p`
+  .text {
+    margin: 10px 0;
+  }
 `;

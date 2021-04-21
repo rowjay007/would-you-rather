@@ -16,5 +16,5 @@ export const Header = styled.h2`
   margin-top: 20px;
   margin-bottom: 30px;
   font-style: oblique;
-  color: tomato;
+  color: #006994;
 `;

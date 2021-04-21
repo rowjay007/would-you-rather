@@ -1,7 +1,7 @@
 import React from "react";
 import OptionStats from "./OptionStats/OptionStats";
 import MarkUserAnswer from "./MarkUserAnswer";
-import classes from "./QuestionStats.module.css";
+import { ProgressBar, Text } from "./QuestionStatsStyle";
 
 const Option = (props) => {
   const {
@@ -14,23 +14,22 @@ const Option = (props) => {
   } = props.option;
 
   return (
-    <div
-      className={classes.progress}
+    <ProgressBar
       style={
         userAnswer === option
           ? { border: "solid tomato 1px", borderRadius: "4px" }
           : null
       }
     >
-      <div className={classes.text} style={{ height: "30px" }}>
+      <Text style={{ height: "30px" }}>
         {userAnswer === option && <MarkUserAnswer />}
-      </div>
-      <p className={classes.text}>Would you rather {text}</p>
+      </Text>
+      <Text>Would you rather {text}</Text>
       <OptionStats width={persent} />
-      <p className={classes.text}>
+      <Text>
         {optionVotes} of {totalVotes} votes
-      </p>
-    </div>
+      </Text>
+    </ProgressBar>
   );
 };
 
