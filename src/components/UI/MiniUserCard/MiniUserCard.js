@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Container, Image, User } from "./MiniUserCardStyle";
 
-const MiniUserCard = (props) => {
-  const { user, users } = props;
+const MiniUserCard = ({user, users}) => {
   const userName = users[user].name;
   const url = users[user].avatarURL;
 
