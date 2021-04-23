@@ -10,8 +10,8 @@ import {
   Selection,
   Input,
 } from "./Login.Element";
-const Login = () => {
-const [value, setValue] = useState("");
+const Login = ({location, dispatch, history, users}) => {
+const [value, setValue] = useState("users");
   
   const handleChange = (e) => {
     setValue(
@@ -22,8 +22,7 @@ const [value, setValue] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     let id = "";
-    const { value } = this.state;
-    const { users } = this.props;
+    
     const userIDs = Object.keys(users);
     userIDs.forEach((userID) => {
       if (users[userID].name === value) {
@@ -31,17 +30,16 @@ const [value, setValue] = useState("");
       }
     });
     const from =
-      this.props.location !== undefined &&
-      this.props.location.state !== undefined
-        ? this.props.location.state.from
+     location !== undefined &&
+     location.state !== undefined
+        ?location.state.from
         : "/home";
 
-    this.props.dispatch(setAuthedUser(id));
-    this.props.history.push(`${from}`);
+   dispatch(setAuthedUser(id));
+   history.push(`${from}`);
   };
 
   
-    const { users } = this.props;
     const names = Object.keys(users);
     return (
       <Container>
@@ -49,12 +47,12 @@ const [value, setValue] = useState("");
         <HeaderH2>Would You Rather?</HeaderH2>
         <OceanBlue>App</OceanBlue>
         <LoginText>To continue please log in.</LoginText>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Selection
-            value={this.state.value}
-            onChange={(e) => this.handleChange(e)}
+            value={value}
+            onChange={(e) => handleChange(e)}
           >
-            <option>{this.state.value}</option>
+            <option>{value}</option>
             {names.map((name) => (
               <option
                 key={users[name].id}
@@ -68,7 +66,7 @@ const [value, setValue] = useState("");
           <Input
             type="submit"
             value="Log In"
-            disabled={this.state.value === "users"}
+            disabled={value === "users"}
           />
         </form>
       </Container>

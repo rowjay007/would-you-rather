@@ -37,4 +37,5 @@ export const Input = styled.input`
   border: none;
   margin: 0;
   padding: 0 5px;
+  cursor: pointer;
 `;
