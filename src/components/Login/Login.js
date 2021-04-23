@@ -10,19 +10,16 @@ import {
   Selection,
   Input,
 } from "./Login.Element";
-
-const Login = ()  => {
-  state = {
-    value: "users",
+const Login = () => {
+const [value, setValue] = useState("");
+  
+  const handleChange = (e) => {
+    setValue(
+      e.target.value,
+    );
   };
 
-  handleChange = (e) => {
-    this.setState({
-      value: e.target.value,
-    });
-  };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let id = "";
     const { value } = this.state;
