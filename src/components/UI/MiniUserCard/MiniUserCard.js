@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import classes from "./MiniUserCard.module.css";
 import { Container, Image, User } from "./MiniUserCardStyle";
 
 const MiniUserCard = (props) => {
