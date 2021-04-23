@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 import { setAuthedUser } from "../../actions/authedUser";
@@ -11,7 +11,7 @@ import {
   Input,
 } from "./Login.Element";
 
-class Login extends Component {
+const Login = ()  => {
   state = {
     value: "users",
   };
@@ -43,7 +43,7 @@ class Login extends Component {
     this.props.history.push(`${from}`);
   };
 
-  render() {
+  
     const { users } = this.props;
     const names = Object.keys(users);
     return (
@@ -77,7 +77,7 @@ class Login extends Component {
       </Container>
     );
   }
-}
+
 
 const mapStateToProps = ({ users }) => ({
   users,

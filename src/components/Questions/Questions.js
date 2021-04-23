@@ -5,7 +5,6 @@ import Question from "./Question";
 import "react-tabs/style/react-tabs.css";
 import { Container, Header } from "./QuestionsStyle";
 
-// Takes questions, sorts the to answered and unanswered and displays them in tabs in order from newer questions to older
 
 const Questions = ({questions, authedUser}) => {
   const answered = !authedUser
