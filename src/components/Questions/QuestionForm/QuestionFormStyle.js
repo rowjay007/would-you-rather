@@ -79,7 +79,7 @@ export const SubmitInput = styled.input`
   display: block;
   margin: auto;
   color: white;
-  background-color: tomato;
+  background-color: #006994;
   width: 70%;
   height: 30px;
   margin-top: 20px;

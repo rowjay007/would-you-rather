@@ -4,7 +4,6 @@ import QuestionForm from "../QuestionForm/QuestionForm";
 import QuestionStats from "../QuestionStats/QuestionStats";
 import NoMatch from "../../NoMatch/NoMatch";
 
-// Determine if the question has been answered and based on it render QuestionForm or QuestionStats
 const Question = (props) => {
   const questionID = props.match.params.id;
   const { questions } = props;

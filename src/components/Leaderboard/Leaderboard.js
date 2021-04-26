@@ -20,7 +20,6 @@ const Leaderboard = ({users}) => {
           }))
           .sort((a, b) => b.total - a.total)
       : [];
-  // for sorted users return a list of UserSummary components
   return (
     <Main>
       {!formated.length
