@@ -4,16 +4,15 @@ import QuestionForm from "../QuestionForm/QuestionForm";
 import QuestionStats from "../QuestionStats/QuestionStats";
 import NoMatch from "../../NoMatch/NoMatch";
 
-const Question = (props) => {
-  const questionID = props.match.params.id;
-  const { questions } = props;
+const Question = ({ authedUser, questions, match }) => {
+  const questionID = match.params.id;
   if (!questions[questionID]) {
     return <NoMatch />;
   }
   const question = questions[questionID];
   const isAnswered =
-    question.optionOne.votes.includes(props.authedUser) ||
-    question.optionTwo.votes.includes(props.authedUser);
+    question.optionOne.votes.includes(authedUser) ||
+    question.optionTwo.votes.includes(authedUser);
   let renderQuestion = null;
 
   if (!isAnswered) {
