@@ -15,9 +15,9 @@ const QuestionInfo = (props) => {
 
   const totalVotes = optionOneVotes + optionTwoVotes;
 
-  const optionOnePersent =
+  const optionOnePercent =
     optionOneVotes === 0 ? 0 : Math.round((optionOneVotes / totalVotes) * 100);
-  const optionTwoPersent =
+  const optionTwoPercent =
     optionTwoVotes === 0 ? 0 : Math.round((optionTwoVotes / totalVotes) * 100);
 
   if (question.optionOne.votes.includes(authedUser)) {
@@ -33,7 +33,7 @@ const QuestionInfo = (props) => {
       userAnswer,
       totalVotes,
       optionVotes: optionOneVotes,
-      persent: optionOnePersent,
+      percent: optionOnePercent,
       text: question.optionOne.text,
     },
     {
@@ -41,7 +41,7 @@ const QuestionInfo = (props) => {
       userAnswer,
       totalVotes,
       optionVotes: optionTwoVotes,
-      persent: optionTwoPersent,
+      percent: optionTwoPercent,
       text: question.optionTwo.text,
     },
   ];

@@ -3,16 +3,14 @@ import OptionStats from "./OptionStats/OptionStats";
 import MarkUserAnswer from "./MarkUserAnswer";
 import { ProgressBar, Text } from "./QuestionStatsStyle";
 
-const Option = (props) => {
-  const {
-    option,
-    userAnswer,
-    totalVotes,
-    optionVotes,
-    persent,
-    text,
-  } = props.option;
-
+const Option = ({
+  option,
+  userAnswer,
+  totalVotes,
+  optionVotes,
+  percent,
+  text,
+}) => {
   return (
     <ProgressBar
       style={
@@ -25,7 +23,7 @@ const Option = (props) => {
         {userAnswer === option && <MarkUserAnswer />}
       </Text>
       <Text>Would you rather {text}</Text>
-      <OptionStats width={persent} />
+      <OptionStats width={percent} />
       <Text>
         {optionVotes} of {totalVotes} votes
       </Text>
