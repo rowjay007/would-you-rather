@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {  useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { handleSaveQuestion } from "../../actions";
@@ -11,89 +11,76 @@ import {
   Input,
 } from "./NewQuestionStyle";
 
-class NewQuestion extends Component {
-  state = {
-    optionOne: "",
-    optionTwo: "",
+const NewQuestion = ({ dispatch, authedUser, history }) => {
+  const [optionOne, setOptionOne] = useState("");
+  const [optionTwo, setOptionTwo] = useState("");
+
+  const handleChangeOne = (e) => {
+    setOptionOne(
+      e.target.value,
+    );
   };
 
-  handleChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  const handleChangeTwo = (e) => {
+    setOptionTwo(e.target.value);
   };
-
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { dispatch } = this.props;
-    // Create question info needed for dispatch
     const question = {
-      optionOneText: this.state.optionOne,
-      optionTwoText: this.state.optionTwo,
-      author: this.props.authedUser,
+      optionOneText: optionOne,
+      optionTwoText: optionTwo,
+      author: authedUser,
     };
-    // Check against empty questions, alert and only dispatch if inputs are not empty
-    if (
-      this.state.optionOne.length === 0 ||
-      this.state.optionTwo.length === 0
-    ) {
+    if (optionOne.length === 0 || optionTwo.length === 0) {
       alert("Please fill in the questions!");
     } else {
       dispatch(handleSaveQuestion(question)).then(() =>
-        this.props.history.push("/home")
+        history.push("/home")
       );
     }
   };
 
-  render() {
-    return (
-      <Container>
-        <p>
-          To create a new question enter two answer options in the text fields
-          below
-        </p>
-        <HeaderH2>Would you rather...</HeaderH2>
-        <form onSubmit={this.handleSubmit}>
-          <FormInput>
-            <Input
-              type="text-area"
-              name="optionOne"
-              placeholder="Enter option One"
-              value={this.state.optionOne}
-              onChange={this.handleChange}
-              maxLength="50"
-            />
-            {
-              /* input lenght is limited to 50 characters dispaly remaining characters count if remeinin is less than 15 */
-              this.state.optionOne.length > 35 && (
-                <Green>{50 - this.state.optionOne.length}</Green>
-              )
-            }
-          </FormInput>
-          <span>or...</span>
-          <FormInput>
-            <Input
-              type="text-area"
-              name="optionTwo"
-              placeholder="Enter option Two"
-              value={this.state.optionTwo}
-              onChange={this.handleChange}
-              maxLength="50"
-            />
-            {
-              /* input lenght is limited to 50 characters dispaly remaining characters count if remeinin is less than 15 */
-              this.state.optionTwo.length > 35 && (
-                <Green>{50 - this.state.optionTwo.length}</Green>
-              )
-            }
-          </FormInput>
-          <Button type="submit">Submit</Button>
-        </form>
-      </Container>
-    );
-  }
-}
+  return (
+    <Container>
+      <p>
+        To create a new question enter two answer options in the text fields
+        below
+      </p>
+      <HeaderH2>Would you rather...</HeaderH2>
+      <form onSubmit={handleSubmit}>
+        <FormInput>
+          <Input
+            type="text-area"
+            name="optionOne"
+            placeholder="Enter option One"
+            value={optionOne}
+            onChange={handleChangeOne}
+            maxLength="50"
+          />
+          {optionOne.length > 35 && <Green>{50 - optionOne.length}</Green>}
+        </FormInput>
+        <span>or...</span>
+        <FormInput>
+          <Input
+            type="text-area"
+            name="optionTwo"
+            placeholder="Enter option Two"
+            value={optionTwo}
+            onChange={handleChangeTwo}
+            maxLength="50"
+          />
+          {
+            /* input lenght is limited to 50 characters dispaly remaining characters count if remeinin is less than 15 */
+            optionTwo.length > 35 && <Green>{50 - optionTwo.length}</Green>
+          }
+        </FormInput>
+        <Button type="submit">Submit</Button>
+      </form>
+    </Container>
+  );
+};
+
 
 const mapStateToProps = ({ authedUser }) => ({
   authedUser,
