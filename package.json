@@ -15,7 +15,6 @@
     "react-tabs": "^3.2.2",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "semantic-ui-css": "^2.4.1",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.1.1"
   },
