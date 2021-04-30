@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory, withRouter } from "react-router";
 import { setAuthUser } from "../actions/authUser";
 
-const Login = () => {
+const Login = ({ userNames, users }) => {
   const [user, setUser] = useState("users");
   const history = useHistory();
   const dispatch = useDispatch();
@@ -17,35 +17,28 @@ const Login = () => {
     dispatch(setAuthUser());
     history.push("/");
   };
+
+
   return (
     <div>
       <div>
         <h3>Welcome to Would you rather...</h3>
       </div>
-          <h4>Please select user and
-      Signin</h4>
-          
+      <h4>Please select user and SignIn</h4>
+
       <form onSubmit={handleSubmit}>
-        <select
-          value={user}
-          onChange={handleChange}
-        >
+        <select value={user} onChange={handleChange}>
           <option>{user}</option>
-          {names.map((name) => (
-            <option
-              key={users[name].id}
-              name={users[name].id}
-              value={users[name].name}
-            >
-              {users[name].name}
+          {userNames.map((userName) => (
+            <option key={userName} value={userName}>
+              {users[userName].name}
             </option>
           ))}
         </select>
         <input
-          className={classes.bth}
           type="submit"
-          value="Log In"
-          disabled={this.state.value === "users"}
+          value="Sign In"
+          disabled={user === "users"}
         />
       </form>
     </div>
@@ -54,8 +47,9 @@ const Login = () => {
 
 function mapStateToProps({ users }) {
   return {
-    users: Object.values(users),
+    userNames: Object.keys(users),
+    users,
   };
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));
