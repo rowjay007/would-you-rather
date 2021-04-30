@@ -1,6 +1,14 @@
 import React from "react";
+import { connect, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { logoutUser } from "../actions/authUser";
 
-const NavBar = ({ avatarURL }) => {
+const NavBar = ({ avatarURL, authUser, users }) => {
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+  };
   return (
     <header>
       <nav>
@@ -14,11 +22,9 @@ const NavBar = ({ avatarURL }) => {
           <li>
             <NavLink to="/add">New Question</NavLink>
           </li>
-          <li >
-            <img src={avatarURL}  />
-            <span onClick={this.logoutUser}>
-              <Logout size={30} />
-            </span>
+          <li>
+            <img src={users[authUser].avatarURL} alt="" />
+            <span onClick={handleLogout}>Sign Out </span>
           </li>
         </ul>
       </nav>
@@ -26,4 +32,11 @@ const NavBar = ({ avatarURL }) => {
   );
 };
 
-export default NavBar;
+function mapStateToProps({ users, loginUser }) {
+  return {
+    users,
+    loginUser,
+  };
+}
+
+export default connect(mapStateToProps)(NavBar);
